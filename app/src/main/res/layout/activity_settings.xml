@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SettingsActivity">
+    <include layout="@layout/toolbar"/>
+    <TextView
+        android:id="@+id/wordCountView"
+        android:text="Количество слов при проверке(1-100)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        />
+
+    <EditText
+        android:id="@+id/wordCountEdit"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text=""
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/wordCountView"
+        app:layout_constraintTop_toBottomOf="@+id/wordCountView"
+        />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:text="Сохранить"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toTopOf="@+id/wordCountEdit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp"
+        android:onClick="saveSettings"
+        />
+
+    <Button
+        android:id="@+id/btnExport"
+        android:text="Экспортировать данные в файл"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginTop="30dip"
+        android:onClick="onExportBtnClick"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnImport"
+        android:text="Импортировать данные из файла"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginTop="30dip"
+        android:onClick="onImportBtnClick"
+        app:layout_constraintTop_toBottomOf="@+id/btnExport"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

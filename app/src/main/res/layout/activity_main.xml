@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="activity.MainActivity" android:id="@+id/content">
+    <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
+    <TextView
+        android:id="@+id/wordOriginalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите новое слово:"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/wordOriginalEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="@+id/wordOriginalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/wordOriginalLabel" />
+
+    <TextView
+        android:id="@+id/wordTranslatedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите перевод:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wordOriginalEdit"
+        android:layout_marginLeft="5dp"
+        />
+
+    <EditText
+        android:id="@+id/wordTranslatedEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="@+id/wordTranslatedLabel"
+        app:layout_constraintTop_toBottomOf="@+id/wordTranslatedLabel" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        android:layout_marginTop="50dp"
+        app:layout_constraintLeft_toLeftOf="@+id/wordTranslatedEdit"
+        app:layout_constraintTop_toBottomOf="@+id/wordTranslatedEdit" />
+</androidx.constraintlayout.widget.ConstraintLayout>
