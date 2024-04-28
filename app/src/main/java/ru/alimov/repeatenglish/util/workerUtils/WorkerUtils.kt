@@ -1,4 +1,4 @@
-package ru.alimov.repeatenglish.util
+package ru.alimov.repeatenglish.util.workerUtils
 
 import android.Manifest
 import android.app.Notification
@@ -9,21 +9,18 @@ import android.content.pm.PackageManager
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.NotificationCompat
-import android.support.v4.app.NotificationManagerCompat
 import ru.alimov.repeatenglish.R
 import ru.alimov.repeatenglish.util.constant.CHANNEL_DESCRIPTION
 import ru.alimov.repeatenglish.util.constant.CHANNEL_ID
 import ru.alimov.repeatenglish.util.constant.CHANNEL_NAME
 import ru.alimov.repeatenglish.util.constant.NOTIFICATION_ID
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
-private val TAG = WorkerUtils::class.java.simpleName
+object WorkerUtils {
 
-class WorkerUtils private constructor() {
     fun makeStatusNotification(title: String?, message: String?, context: Context) {
-
-
         if (ActivityCompat.checkSelfPermission(
                 context,
                 Manifest.permission.POST_NOTIFICATIONS
@@ -69,5 +66,4 @@ class WorkerUtils private constructor() {
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
     }
-
 }
