@@ -47,7 +47,7 @@ class WordRepository(_context: Context) {
 
     fun getWordById(id: Int): Word? {
         val sql =
-            (""""SELECT id, word_original, word_translated, dateCreated, dateUpdated,
+            ("""SELECT id, word_original, word_translated, dateCreated, dateUpdated,
                     dateShowed, add_counter, correct_check_counter, incorrect_check_counter, rating
                     FROM [word_dictionary] WHERE rowid = ?""")
         return database.getObject<Word>(
@@ -58,9 +58,9 @@ class WordRepository(_context: Context) {
 
     fun getWordByOriginal(wordOriginal: String?): Word? {
         val sql =
-            (""""SELECT id, word_original, word_translated, dateCreated, dateUpdated,
-                    dateShowed, add_counter, correct_check_counter, incorrect_check_counter, rating
-                     FROM [word_dictionary] WHERE word_original = ?"""")
+            ("""SELECT id, word_original, word_translated, dateCreated, dateUpdated,
+                    dateShowed, add_counter, correct_check_counter, incorrect_check_counter, rating 
+                     FROM [word_dictionary] WHERE word_original = ?""")
         return database.getObject(sql, this::wordConstructor, arrayOf(wordOriginal))
     }
 

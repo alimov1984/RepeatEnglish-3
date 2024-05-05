@@ -23,8 +23,7 @@ object WorkerUtils {
     fun makeStatusNotification(title: String?, message: String?, context: Context) {
         if (ActivityCompat.checkSelfPermission(
                 context,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) !== PackageManager.PERMISSION_GRANTED
+                Manifest.permission.POST_NOTIFICATIONS) !== PackageManager.PERMISSION_GRANTED
         ) {
             return
         }
