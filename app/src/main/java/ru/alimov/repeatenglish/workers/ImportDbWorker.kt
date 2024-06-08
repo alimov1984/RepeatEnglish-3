@@ -49,7 +49,6 @@ class ImportDbWorker(context: Context, workerParams: WorkerParameters) :
             var line = bufferedReader.readLine()
             while (bufferedReader.readLine().also { line = it } != null) {
                 val wordAtr = line.split(",".toRegex(), limit = 10).toTypedArray()
-                var word: Word? = null
                 val wordOriginal = wordAtr[1]
                 val wordTranslated = wordAtr[2]
                 val dateCreated = Instant.parse(wordAtr[3])
@@ -62,13 +61,11 @@ class ImportDbWorker(context: Context, workerParams: WorkerParameters) :
                 val correctCheckCounter = wordAtr[7].toLong()
                 val incorrectCheckCounter = wordAtr[8].toLong()
                 val rating = wordAtr[9].toLong()
-                word = Word(
+                var word = Word(
                     wordOriginal, wordTranslated, dateCreated, dateUpdated, dateShowed,
                     addCounter, correctCheckCounter, incorrectCheckCounter, rating
                 )
-                if (word != null) {
-                    wordService.insertWord(word)
-                }
+                wordService.insertWord(word)
             }
             inputStreamReader.close()
             fileInputStream.close()

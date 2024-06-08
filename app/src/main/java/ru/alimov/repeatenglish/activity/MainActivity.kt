@@ -61,12 +61,12 @@ class MainActivity : AppCompatActivity() {
 
         this.uiModel?.uiState?.observe(this, uiObserver)
         val btnSave = findViewById<Button>(R.id.btnSave)
-        btnSave.setOnClickListener { v -> sendMessage(v) }
+        btnSave.setOnClickListener { sendMessage() }
     }
 
     //Occurs after rotate device.
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        super.onSaveInstanceState(savedInstanceState!!)
+        super.onSaveInstanceState(savedInstanceState)
         val wordOriginalEdit = findViewById<EditText>(R.id.wordOriginalEdit)
         val wordTranslatedEdit = findViewById<EditText>(R.id.wordTranslatedEdit)
 
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //User inserted new word.
-    private fun sendMessage(view: View) {
+    private fun sendMessage() {
         val wordOriginalEdit = findViewById<EditText>(R.id.wordOriginalEdit)
         val wordTranslatedEdit = findViewById<EditText>(R.id.wordTranslatedEdit)
 
@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
 
         //Insert new word in the database.
         val result = this.wordService!!.insertWord(wordOriginal, wordTranslated)
-        if (result != null && result.isNotEmpty()) {
+        if (result.isNotEmpty()) {
             uiState = MainActivityUiState("", "")
             this.uiModel?.uiState?.value = uiState
             Toast.makeText(this, result, Toast.LENGTH_SHORT).show()

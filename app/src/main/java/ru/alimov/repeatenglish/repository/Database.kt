@@ -60,7 +60,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             val database = this.readableDatabase
             dbCursor = database.rawQuery(sql, sqlParams)
             while (dbCursor.moveToNext()) {
-                resultList!!.add(constructor(dbCursor))
+                resultList.add(constructor(dbCursor))
             }
         } catch (ex: Exception) {
             Log.e("Database", ex.message, ex)

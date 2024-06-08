@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'ru.alimov.repeatenglish'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "ru.alimov.repeatenglish"
         minSdk 23
-        targetSdk 34
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

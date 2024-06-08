@@ -23,7 +23,7 @@ object WorkerUtils {
     fun makeStatusNotification(title: String?, message: String?, context: Context) {
         if (ActivityCompat.checkSelfPermission(
                 context,
-                Manifest.permission.POST_NOTIFICATIONS) !== PackageManager.PERMISSION_GRANTED
+                Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
         ) {
             return
         }
@@ -46,7 +46,7 @@ object WorkerUtils {
             // Add the channel
             val notificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager?.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(channel)
         }
         // Create the notification
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
