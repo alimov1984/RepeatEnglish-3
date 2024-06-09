@@ -31,16 +31,10 @@ class MainActivity : AppCompatActivity() {
     private var uiModel: MainActivityViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen: SplashScreen = installSplashScreen()
-        splashScreen.setKeepOnScreenCondition { true }
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         wordService = ServiceSupplier.getWordService(applicationContext)
-
-        //Keeping logo some time before showing main page.
-        Handler(Looper.getMainLooper()).postDelayed({
-            splashScreen.setKeepOnScreenCondition { false }
-            mainActivityProcess()
-        }, 500)
+        mainActivityProcess()
     }
 
     //Rest part that executes before main page showing.

@@ -10,7 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RepeatEnglish"
+        android:theme="@style/Theme.App.Starting"
         tools:targetApi="33">
         <activity
             android:name="ru.alimov.repeatenglish.activity.MainActivity"
